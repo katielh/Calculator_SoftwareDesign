@@ -19,21 +19,33 @@ import java.awt.event.*;
  *
  * @author tud15220
  */
-public class Calculator extends JFrame{
+public class Main extends JFrame{
      public static String equation;
 
-     
+     //comment
     public static void main(String[] args){
                MathGuts.ops.put("+", 1);
        MathGuts.ops.put("-", 1);
        MathGuts.ops.put("/", 3);
        MathGuts.ops.put("*", 3);
        MathGuts.ops.put("^", 5);
+       MathGuts.ops.put("mod", 3);
        MathGuts.assoc.put("+", "L");
        MathGuts.assoc.put("-", "L");
        MathGuts.assoc.put("*", "L");
        MathGuts.assoc.put("/", "L");
+       MathGuts.assoc.put("mod", "L");
        MathGuts.assoc.put("^", "R");
+       MathGuts.func.add("sin");
+       MathGuts.func.add("tan");
+       MathGuts.func.add("cos");
+       MathGuts.func.add("max");
+       MathGuts.func.add("min");
+       MathGuts.func.add("log");
+       MathGuts.func.add("!");
+       MathGuts.func.add("nroot");
+       
+       
        
 //       Scanner input = new Scanner(System.in);
 //       System.out.println("please enter your equation values separated by spaces");

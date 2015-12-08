@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  * @author tud15220
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({calculator.CalculatorTest.class})
+@Suite.SuiteClasses({calculator.MainTest.class})
 public class CalculatorSuite {
 
     @BeforeClass

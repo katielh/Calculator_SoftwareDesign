@@ -15,7 +15,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import calculator.TextArea; 
 import java.awt.Color;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +28,8 @@ import java.util.Arrays;
 public class Buttons extends JPanel implements ActionListener{
     protected static JButton exit, one, two, three, four, five, six, seven,
             eight, nine, zero, plus, minus, mult, div, equals, clear, ans,
-            lparen, rparen, delete, exp;
+            lparen, rparen, delete, exp, pi, sin, tan, log, cos, max, min, e, comma,
+            mod, nrt, factorial;
     Color numbers = new Color(172, 141, 186);
     Color controls = new Color(188, 97, 230);
     Color operations = new Color(195, 62, 254);
@@ -120,6 +125,30 @@ public class Buttons extends JPanel implements ActionListener{
         zero.setBackground(numbers);
         add(zero);
         
+        pi = new JButton("π");
+        pi.setVerticalTextPosition(AbstractButton.CENTER);
+        pi.setHorizontalTextPosition(AbstractButton.CENTER);
+        pi.setActionCommand("pi");
+        pi.addActionListener(this);
+        pi.setBackground(numbers);
+        add(pi);
+        
+        e = new JButton("e");
+        e.setVerticalTextPosition(AbstractButton.CENTER);
+        e.setHorizontalTextPosition(AbstractButton.CENTER);
+        e.setActionCommand("e");
+        e.addActionListener(this);
+        e.setBackground(numbers);
+        add(e);
+        
+        comma = new JButton(",");
+        comma.setVerticalTextPosition(AbstractButton.CENTER);
+        comma.setHorizontalTextPosition(AbstractButton.CENTER);
+        comma.setActionCommand("comma");
+        comma.addActionListener(this);
+        comma.setBackground(numbers);
+        add(comma);
+        
         equals = new JButton("=");
         equals.setVerticalTextPosition(AbstractButton.CENTER);
         equals.setHorizontalTextPosition(AbstractButton.CENTER);
@@ -208,6 +237,77 @@ public class Buttons extends JPanel implements ActionListener{
         rparen.setBackground(operations);
         add(rparen);
         
+        sin = new JButton("sin");
+        sin.setVerticalTextPosition(AbstractButton.CENTER);
+        sin.setHorizontalTextPosition(AbstractButton.CENTER);
+        sin.setActionCommand("sin");
+        sin.addActionListener(this);
+        sin.setBackground(operations);
+        add(sin);
+        
+        cos = new JButton("cos");
+        cos.setVerticalTextPosition(AbstractButton.CENTER);
+        cos.setHorizontalTextPosition(AbstractButton.CENTER);
+        cos.setActionCommand("cos");
+        cos.addActionListener(this);
+        cos.setBackground(operations);
+        add(cos);
+        
+        tan = new JButton("tan");
+        tan.setVerticalTextPosition(AbstractButton.CENTER);
+        tan.setHorizontalTextPosition(AbstractButton.CENTER);
+        tan.setActionCommand("tan");
+        tan.addActionListener(this);
+        tan.setBackground(operations);
+        add(tan);
+        
+        log = new JButton("log");
+        log.setVerticalTextPosition(AbstractButton.CENTER);
+        log.setHorizontalTextPosition(AbstractButton.CENTER);
+        log.setActionCommand("log");
+        log.addActionListener(this);
+        log.setBackground(operations);
+        add(log);
+        
+        max = new JButton("max");
+        max.setVerticalTextPosition(AbstractButton.CENTER);
+        max.setHorizontalTextPosition(AbstractButton.CENTER);
+        max.setActionCommand("max");
+        max.addActionListener(this);
+        max.setBackground(operations);
+        add(max);
+        
+        min = new JButton("min");
+        min.setVerticalTextPosition(AbstractButton.CENTER);
+        min.setHorizontalTextPosition(AbstractButton.CENTER);
+        min.setActionCommand("min");
+        min.addActionListener(this);
+        min.setBackground(operations);
+        add(min);
+        
+        mod = new JButton("mod");
+        mod.setVerticalTextPosition(AbstractButton.CENTER);
+        mod.setHorizontalTextPosition(AbstractButton.CENTER);
+        mod.setActionCommand("mod");
+        mod.addActionListener(this);
+        mod.setBackground(operations);
+        add(mod);
+        
+        nrt = new JButton("nroot");
+        nrt.setVerticalTextPosition(AbstractButton.CENTER);
+        nrt.setHorizontalTextPosition(AbstractButton.CENTER);
+        nrt.setActionCommand("nrt");
+        nrt.addActionListener(this);
+        nrt.setBackground(operations);
+        add(nrt);
+        
+        factorial = new JButton("factorial");
+        factorial.setVerticalTextPosition(AbstractButton.CENTER);
+        factorial.setHorizontalTextPosition(AbstractButton.CENTER);
+        factorial.setActionCommand("fact");
+        factorial.addActionListener(this);
+        factorial.setBackground(operations);
+        add(factorial);
     }
     
     public void actionPerformed(ActionEvent e){
@@ -244,7 +344,12 @@ public class Buttons extends JPanel implements ActionListener{
         if("zero".equals(e.getActionCommand())){
             TextArea.textField.setText(TextArea.textField.getText()+ "0");
         }
-        
+        if("e".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "e");
+        }
+        if("pi".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "\u03c0");
+        }
         if("plus".equals(e.getActionCommand())){
             TextArea.textField.setText(TextArea.textField.getText()+ "+");
         }
@@ -290,29 +395,67 @@ public class Buttons extends JPanel implements ActionListener{
           
         }
        
+        if("sin".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "sin(");
+        }
         
+        if("cos".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "cos(");
+        }
+               
+        if("tan".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "tan(");
+        }
+        
+        if("log".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "log(");
+        }
+        if("max".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "max(");
+        }
+        
+        if("min".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "min(");
+        }
+        
+        if("comma".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ ",");
+        }
+        
+        if("mod".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "mod");
+        }
+        
+        if("nrt".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "nroot(");
+        }
+        
+        if("fact".equals(e.getActionCommand())){
+            TextArea.textField.setText(TextArea.textField.getText()+ "!");
+        }
         
         if ("eq".equals(e.getActionCommand())){
-            if (MathGuts.validEq(TextArea.textField.getText()) == true){
-                //testing output
-            //System.out.println(Arrays.toString(TextArea.textField.getText().split("(?<=[-+*/()])|(?=[-+*/()])")));
-           //System.out.println("shutingyard completed: " + MathGuts.shuntingYard(TextArea.textField.getText().split("(?<=[-+*/()^])|(?=[-+*/()^])")));
-           //System.out.println("this is after problemsolver: " + MathGuts.problemSolver(MathGuts.shuntingYard(TextArea.textField.getText().split("(?<=[-+*/()^])|(?=[-+*/()^])"))));
-           String[] eqString = TextArea.textField.getText().split("(?<=[-+*/()^])|(?=[-+*/()^sin])");
-           System.out.print(eqString);
-           double ansDouble = MathGuts.problemSolver(MathGuts.shuntingYard(eqString));
-//            System.out.println(ans);
-            String ansString = Double.toString(ansDouble);
-            TextArea.ansArea.setText(ansString);
-            answer = TextArea.ansArea.getText();
+            
+                
+                    //testing output
+                    //System.out.println(Arrays.toString(TextArea.textField.getText().split("(?<=[-+*/()])|(?=[-+*/()])")));
+                    //System.out.println("shutingyard completed: " + MathGuts.shuntingYard(TextArea.textField.getText().split("(?<=[-+*/()^])|(?=[-+*/()^])")));
+                    //System.out.println("this is after problemsolver: " + MathGuts.problemSolver(MathGuts.shuntingYard(TextArea.textField.getText().split("(?<=[-+*/()^])|(?=[-+*/()^])"))));
+                    String eqString = TextArea.textField.getText();
+                    String[] tokens = MathGuts.tokenize1(eqString);
+                    //System.out.println(Arrays.asList(tokens));
+                    double ansDouble = MathGuts.problemSolver(MathGuts.shuntingYard(tokens));
+                    String ansString = Double.toString(ansDouble);
+                    TextArea.ansArea.setText(ansString);
+                    answer = TextArea.ansArea.getText();
+//                
             }
-            else{
-            TextArea.ansArea.setText("invalid");
+           
         }
             
                 
         }
-    }
+   
     
-}
+
 

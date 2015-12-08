@@ -63,6 +63,18 @@ public static void showWind(){
     p.add(butts.rparen);
     p.add(butts.delete);
     p.add(butts.exp);
+    p.add(butts.pi);
+    p.add(butts.e);
+    p.add(butts.max);
+    p.add(butts.min);
+    p.add(butts.sin);
+    p.add(butts.cos);
+    p.add(butts.tan);
+    p.add(butts.log);
+    p.add(butts.comma);
+    p.add(butts.mod);
+    p.add(butts.nrt);
+    p.add(butts.factorial);
     p.setOpaque(true);
     p.setPreferredSize(new Dimension(600,300));
     frame.getContentPane().add(p, BorderLayout.CENTER);

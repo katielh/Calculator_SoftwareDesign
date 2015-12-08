@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author tud15220
  */
-public class CalculatorTest {
+public class MainTest {
     
-    public CalculatorTest() {
+    public MainTest() {
     }
     
     @BeforeClass
@@ -44,7 +44,7 @@ public class CalculatorTest {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        Calculator.main(args);
+        Main.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
